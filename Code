@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//Function to check user's input and set the dimensions.
+double getDimension(string dimensionName, double dimensionValue)
+{
+	//Creates variable for storing user input.
+	double dimensionInput;
+
+	//Uses X as dimension name. E.g Width
+	cout << "Please enter the " << dimensionName << " of the room in meters." << endl;
+
+	//While user's input does not match data type expect, ask to input again.
+	while (!(cin >> dimensionInput))
+	{
+		//Return error.
+		cout << "Invalid number.  Try again." << endl;
+		cin.clear();
+		cin.ignore(1000, '\n');
+	}
+	//Sets dimension to user's input.
+	dimensionValue = dimensionInput;
+
+	//Return dimension value.
+	return dimensionValue;
+}
+
+//Main program. Uses getDimension.
+int main()
+{
+	//Creates variables for use in function.
+	double width = 0;
+	double length = 0;
+	double height = 0;
+
+	//Creates variables for other.
+	double area = 0;
+	double reqPaint = 0;
+	double volume = 0;
+
+	//Uses funciton to get and set dimensions of the room.
+	width = getDimension("width", width);
+	length = getDimension("length", length);
+	height = getDimension("height", height);
+
+	//Get Area of floor. Uses Width x Length
+	area = width*length;
+
+	//Get amount of paint required to paint the walls. Uses ((Width x 2) x Height) + (Length x 2) x Height)).
+	reqPaint = (width * 2 * height) + (length * 2 * height);
+
+	//Get volume of the room. Uses Width x Length x Height
+	volume = width*length*height;
+
+	cout << "The area of the floor is " << area << "m^2." << endl;
+	cout << "The paint rquired for the walls is " << reqPaint << " units. (1 unit per m^2)" << endl;
+	cout << "The volume of the room is " << volume << "m^3." << endl;
+
+	//Pauses program to let the user see the outcome.
+	system("PAUSE");
+
+	return 0;
+}
