@@ -12,7 +12,7 @@ double getDimension(string dimensionName, double dimensionValue)
 	//Uses X as dimension name. E.g Width
 	cout << "Please enter the " << dimensionName << " of the room in meters." << endl;
 
-	//While user's input does not match data type expect, ask to input again.
+	//While user's input does not match data type expected, ask to input again.
 	while (!(cin >> dimensionInput))
 	{
 		//Return error.
